@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style1.css') }}"
+    />
+    <title>Trip Buddy Dashboard</title>
+  </head>
+  <body>
+    <div>
+      <div class="top">
+        <h1>Hello {{username.first_name}}!</h1>
+        <div>
+          <a href="/logout" class="b1">Logout</a>
+          <a href="/trips/new" class="b2">Create a new trip!</a>
+        </div>
+      </div>
+      <p>Your trips:</p>
+      <div class="table1">
+        <table>
+          <thead>
+            <tr class="elements">
+              <th>Destination</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th class="t1">Plan</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for travel in travels %}
+            <tr>
+              <td>
+                <a href="/trips/{{travel.id}}/show">{{travel.destination}}</a>
+              </td>
+              <td>{{travel.start_date}}</td>
+              <td>{{travel.end_date}}</td>
+              <td class="t1">{{travel.plan}}</td>
+              <td>
+                {% if username.id == travel.user.id %}
+                <a href="/trips/{{travel.id}}/delete" class="btn btn-danger"
+                  >Remove</a
+                >
+                <a href="/trips/{{travel.id}}/edit" class="btn btn-warning"
+                  >Edit</a
+                >
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

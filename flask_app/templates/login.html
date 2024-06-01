@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Trip Buddy</title>
+  </head>
+  <body>
+    <h1>Welcome! Let's travel!</h1>
+    <div class="container">
+      <div class="reg">
+        <h2 class="y1">Registration:</h2>
+
+        <div class="one">
+          <form action="/register" method="post">
+            {% with messages =
+            get_flashed_messages(category_filter=["register"]) %} {% for message
+            in messages %}
+            <p>{{message}}</p>
+            {% endfor %} {% endwith %}
+            <div>
+              <label for="" class="txt">First Name</label>
+              <input type="text" name="first_name" class="space" />
+            </div>
+            <div>
+              <label for="" class="txt">Last Name</label>
+              <input type="text" name="last_name" class="space" />
+            </div>
+            <div>
+              <label for="" class="txt">Email</label>
+              <input type="text" name="email" class="space" />
+            </div>
+            <div>
+              <label for="" class="txt">Password</label>
+              <input type="password" name="password" class="space" />
+            </div>
+            <div>
+              <label for="" class="txt">Confirm Password</label>
+              <input type="password" name="confirm_password" class="space" />
+            </div>
+
+            <button class="b1">Register</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="log">
+        <h2 class="y2">Login:</h2>
+        <div class="one">
+          <form action="/login" method="post">
+            {% with messages = get_flashed_messages(category_filter=["login"])
+            %} {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %} {% endwith %}
+            <div>
+              <label for="" class="txt">Email</label>
+              <input type="text" name="email" class="space" />
+            </div>
+            <div>
+              <label for="" class="txt">Password</label>
+              <input type="password" name="password" class="space" />
+            </div>
+            <button class="b2">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

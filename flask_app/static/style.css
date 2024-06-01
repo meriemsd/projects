@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1 {
+    color: steelblue;
+    margin-left: 100px;
+
+}
+
+.y1 {
+    padding: 50px;
+    color: blue;
+}
+
+.y2 {
+    padding: 50px;
+    color: greenyellow;
+}
+
+.reg {
+    display: flex;
+    margin: 10px;
+    background-color: rgb(43, 42, 56);
+    height: 600px;
+    width: 700px;
+}
+
+.log {
+    display: flex;
+    margin: 10px;
+    background-color: rgb(43, 42, 56);
+    height: 600px;
+    width: 500px;
+}
+
+.txt {
+    color: aliceblue;
+    padding: 20px;
+}
+
+.space {
+    margin: 20px;
+    padding: 5px;
+}
+
+.b2 {
+    margin: 10px;
+    background-color: greenyellow;
+    padding: 5px;
+    color: white;
+}
+
+.b1 {
+    margin: 10px;
+    background-color: blue;
+    padding: 5px;
+    color: white;
+}
+
+.one {
+    margin: 20px;
+}
+
+p {
+    color: red;
+    background-color: rgb(237, 223, 225);
+    padding: 5px;
+}

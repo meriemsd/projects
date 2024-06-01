@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style5.css') }}"
+    />
+    <title>View trip</title>
+  </head>
+  <body>
+    <div>
+      <div class="top">
+        <h1>Hello {{logged_user}}! Read about this trip!</h1>
+        <a href="/dashboard" class="b2">Dashboard</a>
+        <a href="/logout" class="b2">Logout</a>
+      </div>
+      <p class="d1">{{travel.destination}}</p>
+      <div class="home">
+        <div class="t1">
+          <p><b>Start Date: </b> {{travel.start_date}}</p>
+        </div>
+
+        <div class="t1">
+          <p><b>End Date: </b> {{travel.end_date}}</p>
+        </div>
+
+        <div class="t1">
+          <p><b>Created On: </b>{{travel.created_at}}</p>
+        </div>
+
+        <div class="t1">
+          <p><b>Updated On: </b>{{travel.updated_at}}</p>
+        </div>
+
+        <div class="t1">
+          <p><b>Plan: </b> {{travel.plan}}</p>
+        </div>
+
+        <div class="t1">
+          <p><b>Created By: </b> {{logged_user}}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

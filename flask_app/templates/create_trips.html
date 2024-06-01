@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style3.css') }}"
+    />
+    <title>New Trip</title>
+  </head>
+  <body>
+    <div>
+      <div class="top">
+        <h1>Hello {{logged_user}}! Create a trip!</h1>
+        <a href="/logout" class="b2">Logout</a>
+      </div>
+      <form action="/trips/create" method="post" class="form">
+        <input type="hidden" name="user_id" value="{{logged_user.id}}" />
+
+        <div class="home">
+          <div class="t1">
+            <label for="">Destination:</label>
+            <input type="text" name="destination" />
+          </div>
+
+          <div class="t1">
+            <label for="">Start Date:</label>
+            <input type="date" name="start_date" />
+          </div>
+
+          <div class="t1">
+            <label for="">End Date:</label>
+            <input type="date" name="end_date" />
+          </div>
+
+          <div class="t1">
+            <label for="">Plan:</label>
+            <textarea name="plan" id="" cols="30" rows="10"></textarea>
+          </div>
+
+          <div class="t1">
+            <a href="/dashboard" class="b1">Cancel</a>
+            <button type="submit" class="btn btn-success">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <p class="msg">{{message}}</p>
+      {% endfor %} {% endif %} {% endwith %}
+    </div>
+  </body>
+</html>
